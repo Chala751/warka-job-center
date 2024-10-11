@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Signup</title>
+</head>
+<style>
+	body {
+		background-color: black;
+		color: white;
+	}
+	h2 {
+		text-align: center;
+	}
+	form {
+		width: 300px;
+		height: 500px;
+		margin: 20px auto;
+		padding: 20px;
+		background: transparent;
+		border: 4px solid white;
+		border-radius: 0px 0px 18px 18px;
+	}
+	h1 {
+		color: white;
+		border-radius: 30px;
+		text-align: center;
+	}
+	.input-group {
+		height: 30px;
+		width: 93%;
+		padding: 5px 10px;
+		font-size: 20px;
+		border-radius: 25px;
+		border: 1px solid blue;
+		box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+	}
+	.btn {
+		padding: 10px;
+		color: white;
+		background-color: darkred;
+		border-radius: 20px;
+		cursor: pointer;
+		text-shadow: 2px 2px 4px #000000;
+		font-size: 20px;
+	}
+	.btn:hover {
+		color: red;
+		background-color: white;
+	}
+	a:link, a:visited {
+		background-color: red;
+		color: white;
+		text-decoration: none;
+		display: inline-block;
+		font-size: 20px;
+	}
+	a:hover, a:active {
+		background-color: green;
+	}
+</style>
+<body>
+	<h2>Signup Here</h2>
+	<form action="register.php" method="POST" onsubmit="return validatePassword()">
+		<h1>Registration Form</h1>
+		
+		<input type="text" name="firstname" placeholder="Enter firstname" class="input-group" required><br><br>
+		<input type="text" name="lastname" placeholder="Enter lastname" class="input-group" required><br><br>
+
+		<label>Sex</label>
+		<input type="radio" name="sex" value="Male" required>
+		<label>Male</label>
+		<input type="radio" name="sex" value="Female" required>
+		<label>Female</label><br><br>
+
+		<input type="number" name="phone" placeholder="Enter phone no 09xxxxxxxx" class="input-group" style="color:black;" required><br><br>
+		
+		<input type="password" id="password1" name="password1" placeholder="Enter password" class="input-group" style="color:black;" required><br><br>
+		<input type="password" id="password2" name="password2" placeholder="Confirm password" class="input-group" style="color:black;" required><br><br>
+
+		<input type="submit" name="Register" class="btn" value="Register">
+	</form>
+    <a href="proj4.html"><button>Exit</button></a>
+
+	<script>
+		function validatePassword() {
+			const password1 = document.getElementById('password1').value;
+			const password2 = document.getElementById('password2').value;
+
+			if (password1 !== password2) {
+				alert('Passwords do not match. Please try again.');
+				return false; // prevent form submission
+			}
+
+			return true; // allow form submission if passwords match
+		}
+	</script>
+
+</body>
+</html>

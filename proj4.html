@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width,initial-scaled=1.0">
+        <title>proj4</title>
+    
+    </head>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: sans-serif;
+        }
+       nav{
+        position:fixed;
+        top:0;
+        left:0;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 15px 10%;
+        border-bottom: 1px solid #000;
+        z-index: 10;
+       }
+       nav ul li{
+        list-style: none;
+        display: inline-block;
+        margin: 10px 20px;
+        font-weight: 500;
+        cursor: pointer;
+       } 
+       nav  .logo{
+        width: 220px;
+        cursor: pointer;
+       }
+       nav ul li a{
+			text-decoration: none;
+			color: rgb(242, 36, 36);
+			font-size: 15px;
+			padding: 6px 13px;
+			transition: .4s;
+		}
+		nav ul li a.active,
+		nav ul li a:hover{
+			background: rgb(79, 125, 100);
+			border-radius: 2px;
+		}
+      .nav-btn{
+        background: #000;
+        color: #fff;
+        font-size: 16px;
+        padding: 15px 25px;
+        border: 0;
+        outline: 0;
+        border-radius: 40px;
+        cursor: pointer;
+       }
+       .nav-btn img{
+        width: 16px;
+        margin-left: 8px;
+       }
+       .header{
+        width:100%;
+        min-height: 100vh;
+        background: linear-gradient(#5e9cb7 0%,#c66f6f 49%,#da801a 100%);
+        padding: 0 10%;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+       }
+       .header h1{
+        margin-top: 100px;
+        font-size: 13vw;
+        line-height: 11vw;
+       }
+       .btn-container{
+        margin: 20px 0;
+       }
+       .header button{
+        border: 0;
+        outline: 0;
+        display: inline-flex;
+        align-items: center;
+        font-size: 18px;
+        margin-right: 20px;
+        cursor: pointer;
+       }
+       .btn-dark{
+        background: #000;
+        color: #fff;
+        padding: 9px 9px 9px 25px;
+        border-radius: 40px;
+       }
+       .btn-dark img{
+        width: 40px;
+        background: #fff;
+        border-radius: 50%;
+        padding:10px;
+        margin-left: 30px;
+       }
+       .btn-light{
+        background: transparent;
+        text-decoration: underline;
+       
+       }
+       .btn-light img{
+         width: 20px;
+         margin-left: 10px;
+         
+       }
+       .header p{
+        max-width: 360px;
+        font-weight: 500;
+       }
+       .user{
+        width: 85%;
+        max-width: 600px;
+        position: absolute;
+        right: 13%;
+        bottom: 0;
+       }
+       .header h1 span{
+        background: linear-gradient(#000,#000);
+        background-repeat: no-repeat;
+        -webkit-text-fill-color: transparent;
+        -webkit-background-clip: text;
+        background-size: 0%;
+       }
+       .header h1 span:first-child{
+        animation: textcolor1 2s linear infinite alternate ;
+       }
+       .header h1 span:last-child{
+        animation: textcolor2 2s linear infinite alternate ;
+       }
+       @keyframes textcolor1 {
+        0%{
+          background-size: 0%;
+        }
+        40%{
+          background-size: 100%;
+        }
+        100%{
+          background-size:100%;
+        }
+       }
+       @keyframes textcolor2 {
+        0%{
+          background-size: 0%;
+        }
+        40%{
+          background-size: 0%;
+        }
+        100%{
+          background-size:100%;
+        }
+       }
+       .menu-icon{
+        display: none;
+       }
+
+       @media only screen and (max-width:600px){
+        nav ul{
+          position: absolute;
+          width: 100%;
+          background: #000;
+          color: #fff;
+          left: 0;
+          top: 100%;
+          text-align: center;
+          max-height: 0;
+          overflow: hidden;
+          transition:max-height 0.5s ;
+          flex-direction: column; /* Adjust for vertical layout */
+                padding-top: 10px; /* Add some padding */
+                padding-bottom: 10px; /* Add some padding */
+        }
+        .nav-btn{
+          display: none;
+        }
+        nav .logo{
+          width: 150px;
+        }
+        nav ul li{
+          margin: 10px;
+          font-size: 14px;
+        }
+        .menu-icon{
+        display: block;
+        width:40px ;
+        cursor:pointer; /* Add cursor pointer for interaction */
+                margin-left:auto; /* Align to the right */
+                margin-right:auto; /* Center the icon */
+       }
+       .show-menu{
+        max-height: 50px;
+       }
+
+       }
+       @media only screen and (max-width:600px){
+        .header{
+          min-height: auto;
+          padding: 0;
+        }
+        .user{
+          width: 100%;
+          right: auto;
+          position: relative;
+          margin-top: 100px;
+        }
+        .header-content{
+          position: absolute;
+          bottom: 0;
+          padding: 0 10%;
+          z-index: 2;
+          padding-bottom: 40px;
+          background: linear-gradient(transparent,#fff);
+        }
+        .btn-container{
+          margin: 5px 0;
+        }
+        .header button{
+          font-size: 14px;
+          margin-right: 10px;
+        }
+        .btn-dark{
+          padding: 7px 7px 7px 20px;
+          margin-bottom: 10px;
+        }
+        .btn-dark img{
+          width: 30px;
+          padding: 5px;
+          margin-left: 15px;
+        }
+        .btn-light img{
+          width: 12px;
+          margin-left: 5px;
+        }
+        .header h1{
+          font-size: 70px;
+          line-height: 60px;
+          margin-bottom: 20px;
+        }
+
+       }
+
+    </style>
+    <body>
+        <nav>
+            <img src="warkatree.png" style="width: 120px; height: 90px;"  alt="" class="logo"> <pre><h3>Warka
+Job_center
+            </h3></pre>
+            <ul id="menu">
+                <li><a class="active" href="#">Home</a></li>
+                <li><a href="services4.html">Services</a></li>
+                <li><a href="signin4.html">Sign In</a></li>
+                <li><a href="about4.html">About us</a></li>
+            </ul>
+            <button class="nav-btn">Get started <img src="curser.png" alt="" onclick="alert('please Sign up first')"> </button>
+            <img src="menu.png" alt="" class="menu-icon" onclick="toogleMenu()">
+        </nav>
+        <div class="header">
+          <div class="header-content">
+            <h1><span>JOB</span><br><span>IS HERE </span></h1>
+          <div class="btn-container">
+            <button class="btn-dark">Request call back <img src="call.png"  style="width: 80px; height: 50px;" alt="" onclick="alert('Do you want to get us ? goto our about us link!')"></button>
+            <button class="btn-light">Know more <img src="curser.png"   style="width: 30px; height: 20px;" alt="" onclick="alert('go to our services page you can get our services in berief way')"></button>
+          </div>
+          <p>Any one who want job with 0 years of experience can get work acording to his/her ability!.</p>
+          </div>
+          
+          <img src="man-removebg-preview (1).png" alt="" class="user">
+
+        </div>
+
+        <script>
+        
+          const menuIcon = document.querySelector('.menu-icon');
+           const navList = document.querySelector('nav ul');
+
+    menuIcon.addEventListener('click', () => {
+        navList.classList.toggle('show-menu');
+    });
+        </script>
+
+    </body>
+</html>
